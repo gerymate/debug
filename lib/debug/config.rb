@@ -353,6 +353,9 @@ module DEBUGGER__
         o.on('--port=PORT', 'Listening TCP/IP port') do |port|
           config[:port] = port
         end
+        o.on('--port-range=PORT_RANGE', 'Number of ports to try to connect to') do |port_range|
+          config[:port_range] = port_range
+        end
         o.on('--host=HOST', 'Listening TCP/IP host') do |host|
           config[:host] = host
         end
