@@ -399,16 +399,12 @@ module DEBUGGER__
           raise "Specify digits for port number"
         end
       end
-      @port_range = if @port == 0
+      @port_range = if @port.zero?
         0
       else
-        port_range_str = (port_range && port_range.to_s) || CONFIG[:port_range] || "0"
-        case port_range_str
-        when /\A\d+\z/
-          port_str.to_i
-        else
-          raise "Specify a positive integer for port range"
-        end
+        port_range_str = (port_range || CONFIG[:port_range] || "0").to_s
+        raise "Specify a positive integer for port range" unless port_range_str.match?(/\A\d+\z/)
+        port_range_str.to_i
       end
       @uuid = nil # for CDP
 
