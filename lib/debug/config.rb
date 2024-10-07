@@ -44,6 +44,7 @@ module DEBUGGER__
     # remote setting
     open:           ['RUBY_DEBUG_OPEN',         "REMOTE: Open remote port (same as `rdbg --open` option)"],
     port:           ['RUBY_DEBUG_PORT',         "REMOTE: TCP/IP remote debugging: port"],
+    port_range:     ['RUBY_DEBUG_PORT_RANGE',   "REMOTE: TCP/IP remote debugging: length of port range"],
     host:           ['RUBY_DEBUG_HOST',         "REMOTE: TCP/IP remote debugging: host", :string, "127.0.0.1"],
     sock_path:      ['RUBY_DEBUG_SOCK_PATH',    "REMOTE: UNIX Domain Socket remote debugging: socket path"],
     sock_dir:       ['RUBY_DEBUG_SOCK_DIR',     "REMOTE: UNIX Domain Socket remote debugging: socket directory"],
