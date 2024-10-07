@@ -459,9 +459,9 @@ module DEBUGGER__
           end
         end
       rescue Errno::EADDRINUSE
-        number_of_retries = @port_range != 0 ? @port_range : 10
+        number_of_retries = @port_range.zero? ? 10 : @port_range
         if retry_cnt < number_of_retries
-          @port += 1 if @port_range != 0
+          @port += 1 unless @port_range.zero?
           retry_cnt += 1
           sleep 0.1
           retry
