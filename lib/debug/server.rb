@@ -399,9 +399,11 @@ module DEBUGGER__
           raise "Specify digits for port number"
         end
       end
-      @port_range = begin
+      @port_range = if @port == 0
+        0
+      else
         port_range_str = (port_range && port_range.to_s) || CONFIG[:port_range] || "0"
-        case port_str
+        case port_range_str
         when /\A\d+\z/
           port_str.to_i
         else
